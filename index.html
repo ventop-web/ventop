@@ -631,18 +631,18 @@
     <div class="contact-form-wrap">
       <h3>Send us a message</h3>
       <div class="form-row">
-        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Jane Smith"></div>
-        <div class="form-group"><label>Company</label><input type="text" placeholder="Your Brand"></div>
+        <div class="form-group"><label>Your Name</label><input id="cf-name" type="text" placeholder="Jane Smith"></div>
+        <div class="form-group"><label>Company</label><input id="cf-company" type="text" placeholder="Your Brand"></div>
       </div>
-      <div class="form-group"><label>Email Address</label><input type="email" placeholder="jane@yourbrand.com"></div>
+      <div class="form-group"><label>Email Address</label><input id="cf-email" type="email" placeholder="jane@yourbrand.com"></div>
       <div class="form-group"><label>Product Interest</label>
-        <select><option value="">Select a cap style…</option><option>Structured Caps</option><option>Unstructured / Classic Caps</option><option>Snapback & Strapback</option><option>Trucker Caps</option><option>Bucket Hats</option><option>Beanies & Knits</option><option>Fitted Caps</option><option>OEM / Private Label</option><option>Custom ODM</option><option>Multiple / Not Sure</option></select>
+        <select id="cf-product"><option value="">Select a cap style…</option><option>Structured Caps</option><option>Unstructured / Classic Caps</option><option>Snapback & Strapback</option><option>Trucker Caps</option><option>Bucket Hats</option><option>Beanies & Knits</option><option>Fitted Caps</option><option>OEM / Private Label</option><option>Custom ODM</option><option>Multiple / Not Sure</option></select>
       </div>
       <div class="form-group"><label>Estimated Quantity</label>
-        <select><option value="">Select quantity range…</option><option>300–500 units</option><option>500–1,000 units</option><option>1,000–5,000 units</option><option>5,000–10,000 units</option><option>10,000+ units</option></select>
+        <select id="cf-qty"><option value="">Select quantity range…</option><option>300–500 units</option><option>500–1,000 units</option><option>1,000–5,000 units</option><option>5,000–10,000 units</option><option>10,000+ units</option></select>
       </div>
-      <div class="form-group"><label>Your Message</label><textarea placeholder="Tell us about your brand, style, and timeline…"></textarea></div>
-      <button class="btn-dark" style="width:100%;padding:15px;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:none;">Send Enquiry →</button>
+      <div class="form-group"><label>Your Message</label><textarea id="cf-message" placeholder="Tell us about your brand, style, and timeline…"></textarea></div>
+      <button class="btn-dark" onclick="sendEnquiry()" style="width:100%;padding:15px;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;">Send Enquiry →</button>
     </div>
   </div>
 </div>
@@ -777,6 +777,32 @@
     el.style.animation=`fadeUp .8s ease ${0.08+i*.14}s forwards`;
   });
   initObserver();
+
+  function sendEnquiry() {
+    var name    = document.getElementById('cf-name').value.trim();
+    var company = document.getElementById('cf-company').value.trim();
+    var email   = document.getElementById('cf-email').value.trim();
+    var product = document.getElementById('cf-product').value;
+    var qty     = document.getElementById('cf-qty').value;
+    var message = document.getElementById('cf-message').value.trim();
+
+    if (!name || !email || !message) {
+      alert('Please fill in your Name, Email, and Message before sending.');
+      return;
+    }
+
+    var subject = encodeURIComponent('Cap Enquiry from ' + name + (company ? ' – ' + company : ''));
+    var body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Company: ' + (company || '—') + '\n' +
+      'Email: ' + email + '\n' +
+      'Product Interest: ' + (product || '—') + '\n' +
+      'Estimated Quantity: ' + (qty || '—') + '\n\n' +
+      'Message:\n' + message
+    );
+
+    window.location.href = 'mailto:order@ventop.co?subject=' + subject + '&body=' + body;
+  }
 </script>
 </body>
 </html>
