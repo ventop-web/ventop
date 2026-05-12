@@ -289,6 +289,29 @@
     .gallery-card:nth-child(1){grid-column:span 2;aspect-ratio:2/1;}
   }
 
+
+  /* Testimonials */
+  .testimonials{padding:96px 56px;background:var(--beige);overflow:hidden;}
+  .testimonials h2{font-size:clamp(32px,4vw,52px);margin-bottom:8px;}
+  .testi-track-wrap{overflow:hidden;margin-top:56px;position:relative;}
+  .testi-track-wrap::before,.testi-track-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
+  .testi-track-wrap::before{left:0;background:linear-gradient(to right,var(--beige),transparent);}
+  .testi-track-wrap::after{right:0;background:linear-gradient(to left,var(--beige),transparent);}
+  .testi-track{display:flex;gap:24px;width:max-content;animation:scrollTesti 40s linear infinite;}
+  .testi-track:hover{animation-play-state:paused;}
+  @keyframes scrollTesti{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+  .testi-card{background:var(--white,#fff);border:1px solid rgba(42,37,32,.07);border-radius:16px;padding:32px;width:320px;flex-shrink:0;position:relative;}
+  .testi-card::before{content:'"';position:absolute;top:16px;right:24px;font-size:64px;line-height:1;color:var(--accent);opacity:0.25;font-family:'Fraunces',serif;}
+  .testi-stars{display:flex;gap:3px;margin-bottom:16px;}
+  .testi-stars span{color:var(--accent);font-size:14px;}
+  .testi-text{font-size:14px;line-height:1.75;color:var(--mid);margin-bottom:20px;font-style:italic;}
+  .testi-author{display:flex;align-items:center;gap:12px;}
+  .testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--dark);flex-shrink:0;}
+  .testi-name{font-weight:700;font-size:13px;color:var(--dark);}
+  .testi-role{font-size:11px;color:var(--mid);margin-top:2px;}
+  .testi-flag{font-size:22px;margin-left:auto;line-height:1;}
+  @media(max-width:900px){.testimonials{padding:64px 24px;}}
+
 </style>
 </head>
 <body>
@@ -430,6 +453,231 @@
     </div>
   </section>
 
+  <!-- Testimonials -->
+  <section class="testimonials fade-up">
+    <div class="sec-label">Client Reviews</div>
+    <h2>Trusted by Brands <em>Worldwide</em></h2>
+    <div class="testi-track-wrap">
+      <div class="testi-track">
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Ventop delivered exactly what we envisioned. The 3D puff embroidery on our trucker caps was flawless. Sample arrived in 10 days and bulk order in under 4 weeks. Will definitely reorder.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">JL</div>
+        <div>
+          <div class="testi-name">James L.</div>
+          <div class="testi-role">Brand Director, Streetwear Label</div>
+        </div>
+        <span class="testi-flag">🇸🇬</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">We needed 500 custom caps for our annual conference. Ventop handled everything — design, production, shipping. Quality was outstanding and the team was incredibly responsive via WhatsApp.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">SR</div>
+        <div>
+          <div class="testi-name">Sarah R.</div>
+          <div class="testi-role">Marketing Manager, Corporate Events Co.</div>
+        </div>
+        <span class="testi-flag">🇦🇺</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">We've worked with many cap manufacturers across Asia. Ventop stands out for their attention to detail. Our SIDES caps came out better than the sample. Highly recommend for premium custom headwear.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AM</div>
+        <div>
+          <div class="testi-name">Ahmad M.</div>
+          <div class="testi-role">Founder, Sides Singapore</div>
+        </div>
+        <span class="testi-flag">🇸🇬</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Sourced our entire SS25 cap collection through Ventop. The ODM process was smooth, pricing was competitive, and quality is on par with much bigger manufacturers. Great find.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">KT</div>
+        <div>
+          <div class="testi-name">Kevin T.</div>
+          <div class="testi-role">Creative Director, Lifestyle Brand</div>
+        </div>
+        <span class="testi-flag">🇺🇸</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Ordered 300 fitted caps for our sports academy. Delivery was on time, stitching was perfect, and the colours matched our brand guidelines exactly. Very professional team.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">NP</div>
+        <div>
+          <div class="testi-name">Nurul P.</div>
+          <div class="testi-role">Operations Manager, Sports Academy</div>
+        </div>
+        <span class="testi-flag">🇲🇾</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Found Ventop through Instagram and reached out for a sample. Impressed from day one. The bucket hat with mesh ventilation panel came out beautifully. Now doing our 3rd bulk order.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">DW</div>
+        <div>
+          <div class="testi-name">Daniel W.</div>
+          <div class="testi-role">CEO, Outdoor Apparel Brand</div>
+        </div>
+        <span class="testi-flag">🇬🇧</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Needed branded caps for a product launch event. Ventop turned around 200 units in 3 weeks — ahead of schedule. Embroidery on the logo was sharp and consistent across every cap.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">CL</div>
+        <div>
+          <div class="testi-name">Cheng L.</div>
+          <div class="testi-role">Merchandise Manager, Tech Startup</div>
+        </div>
+        <span class="testi-flag">🇭🇰</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">As a fellow Indonesian brand, it means a lot to work with Ventop. The craftsmanship is world-class and the Singapore team gives you that professional business experience. 10/10.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">RA</div>
+        <div>
+          <div class="testi-name">Rizky A.</div>
+          <div class="testi-role">Brand Owner, Streetwear Label</div>
+        </div>
+        <span class="testi-flag">🇮🇩</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">We import custom caps from several manufacturers. Ventop's quality consistency is among the best. Every piece in our 1000-unit order was uniform. That's rare and that's what we need.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">YS</div>
+        <div>
+          <div class="testi-name">Yuki S.</div>
+          <div class="testi-role">Buyer, Retail Chain</div>
+        </div>
+        <span class="testi-flag">🇯🇵</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Ventop delivered exactly what we envisioned. The 3D puff embroidery on our trucker caps was flawless. Sample arrived in 10 days and bulk order in under 4 weeks. Will definitely reorder.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">JL</div>
+        <div>
+          <div class="testi-name">James L.</div>
+          <div class="testi-role">Brand Director, Streetwear Label</div>
+        </div>
+        <span class="testi-flag">🇸🇬</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">We needed 500 custom caps for our annual conference. Ventop handled everything — design, production, shipping. Quality was outstanding and the team was incredibly responsive via WhatsApp.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">SR</div>
+        <div>
+          <div class="testi-name">Sarah R.</div>
+          <div class="testi-role">Marketing Manager, Corporate Events Co.</div>
+        </div>
+        <span class="testi-flag">🇦🇺</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">We've worked with many cap manufacturers across Asia. Ventop stands out for their attention to detail. Our SIDES caps came out better than the sample. Highly recommend for premium custom headwear.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AM</div>
+        <div>
+          <div class="testi-name">Ahmad M.</div>
+          <div class="testi-role">Founder, Sides Singapore</div>
+        </div>
+        <span class="testi-flag">🇸🇬</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Sourced our entire SS25 cap collection through Ventop. The ODM process was smooth, pricing was competitive, and quality is on par with much bigger manufacturers. Great find.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">KT</div>
+        <div>
+          <div class="testi-name">Kevin T.</div>
+          <div class="testi-role">Creative Director, Lifestyle Brand</div>
+        </div>
+        <span class="testi-flag">🇺🇸</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Ordered 300 fitted caps for our sports academy. Delivery was on time, stitching was perfect, and the colours matched our brand guidelines exactly. Very professional team.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">NP</div>
+        <div>
+          <div class="testi-name">Nurul P.</div>
+          <div class="testi-role">Operations Manager, Sports Academy</div>
+        </div>
+        <span class="testi-flag">🇲🇾</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Found Ventop through Instagram and reached out for a sample. Impressed from day one. The bucket hat with mesh ventilation panel came out beautifully. Now doing our 3rd bulk order.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">DW</div>
+        <div>
+          <div class="testi-name">Daniel W.</div>
+          <div class="testi-role">CEO, Outdoor Apparel Brand</div>
+        </div>
+        <span class="testi-flag">🇬🇧</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Needed branded caps for a product launch event. Ventop turned around 200 units in 3 weeks — ahead of schedule. Embroidery on the logo was sharp and consistent across every cap.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">CL</div>
+        <div>
+          <div class="testi-name">Cheng L.</div>
+          <div class="testi-role">Merchandise Manager, Tech Startup</div>
+        </div>
+        <span class="testi-flag">🇭🇰</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">As a fellow Indonesian brand, it means a lot to work with Ventop. The craftsmanship is world-class and the Singapore team gives you that professional business experience. 10/10.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">RA</div>
+        <div>
+          <div class="testi-name">Rizky A.</div>
+          <div class="testi-role">Brand Owner, Streetwear Label</div>
+        </div>
+        <span class="testi-flag">🇮🇩</span>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">We import custom caps from several manufacturers. Ventop's quality consistency is among the best. Every piece in our 1000-unit order was uniform. That's rare and that's what we need.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">YS</div>
+        <div>
+          <div class="testi-name">Yuki S.</div>
+          <div class="testi-role">Buyer, Retail Chain</div>
+        </div>
+        <span class="testi-flag">🇯🇵</span>
+      </div>
+    </div>
+      </div>
+    </div>
+  </section>
   <section class="cta-section">
     <h2>Let's Build Your <em>Next</em> Collection</h2>
     <p class="cta-sub">Tell us about your brand and requirements. We'll respond with a quote within 48 hours.</p>
