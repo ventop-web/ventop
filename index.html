@@ -23,11 +23,11 @@
   }
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--beige);color:var(--dark);overflow-x:hidden;cursor:none;}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--beige);color:var(--dark);overflow-x:hidden;}
 
   /* CURSOR */
-  .cursor{width:10px;height:10px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .15s ease;}
-  .cursor-ring{width:30px;height:30px;border:1.5px solid rgba(232,164,74,.45);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .35s ease;}
+
+
 
   /* NAV */
   nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;background:rgba(253,250,245,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(168,149,108,0.12);box-shadow:0 1px 0 rgba(168,149,108,0.08);}
@@ -156,7 +156,7 @@
   /* GALLERY */
   .gallery-header{background:var(--white);padding:160px 56px 56px;border-bottom:1px solid var(--border);}
   .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--beige3);padding:2px;}
-  .gallery-item{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:none;background:var(--beige2);}
+  .gallery-item{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--beige2);}
   .gallery-item:nth-child(1){grid-column:span 2;aspect-ratio:auto;min-height:380px;}
   .gallery-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transition:background .3s;}
   .gallery-item:hover .gallery-placeholder{background:rgba(232,164,74,.08);}
@@ -259,10 +259,11 @@
 
   /* Sticky email CTA */
   .sticky-cta{position:fixed;bottom:28px;right:28px;z-index:300;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
-  .sticky-email-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;background:var(--dark);color:var(--beige);border-radius:50px;font-size:12px;font-weight:600;letter-spacing:0.3px;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,0.18);transition:background .2s,transform .2s;white-space:nowrap;}
-  .sticky-email-btn:hover{background:var(--warm);transform:translateY(-2px);}
-  .sticky-email-btn svg{width:15px;height:15px;fill:currentColor;flex-shrink:0;}
-  @media(max-width:600px){.sticky-cta{bottom:20px;right:16px;}.sticky-email-btn span{display:none;}.sticky-email-btn{padding:14px;border-radius:50%;}}
+  .sticky-wa-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;background:#25D366;color:#fff;border-radius:50px;font-size:13px;font-weight:700;letter-spacing:0.2px;text-decoration:none;box-shadow:0 4px 24px rgba(37,211,102,0.35);transition:background .2s,transform .2s,box-shadow .2s;white-space:nowrap;}
+  .sticky-wa-btn:hover{background:#1ebe5d;transform:translateY(-3px);box-shadow:0 8px 32px rgba(37,211,102,0.45);}
+  .sticky-wa-btn svg{width:22px;height:22px;fill:#fff;flex-shrink:0;}
+  .sticky-wa-pulse{position:absolute;top:-3px;right:-3px;width:12px;height:12px;background:#ff3b30;border-radius:50%;border:2px solid #fff;}
+  @media(max-width:600px){.sticky-cta{bottom:20px;right:16px;}.sticky-wa-btn span{display:none;}.sticky-wa-btn{padding:14px;border-radius:50%;}}
 
 
   /* Hero Slideshow */
@@ -278,7 +279,7 @@
 
   /* Real Gallery */
   .gallery-grid-real{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--beige3);padding:3px;}
-  .gallery-card{position:relative;overflow:hidden;aspect-ratio:1/1;cursor:pointer;}
+  .gallery-card{position:relative;overflow:hidden;aspect-ratio:1/1;}
   .gallery-card:nth-child(1){grid-column:span 2;aspect-ratio:2/1;}
   .gallery-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
   .gallery-card:hover img{transform:scale(1.06);}
@@ -294,8 +295,6 @@
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 
 <!-- NAV -->
 <nav>
@@ -631,18 +630,18 @@
     <div class="contact-form-wrap">
       <h3>Send us a message</h3>
       <div class="form-row">
-        <div class="form-group"><label>Your Name</label><input id="cf-name" type="text" placeholder="Jane Smith"></div>
-        <div class="form-group"><label>Company</label><input id="cf-company" type="text" placeholder="Your Brand"></div>
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Jane Smith"></div>
+        <div class="form-group"><label>Company</label><input type="text" placeholder="Your Brand"></div>
       </div>
-      <div class="form-group"><label>Email Address</label><input id="cf-email" type="email" placeholder="jane@yourbrand.com"></div>
+      <div class="form-group"><label>Email Address</label><input type="email" placeholder="jane@yourbrand.com"></div>
       <div class="form-group"><label>Product Interest</label>
-        <select id="cf-product"><option value="">Select a cap style…</option><option>Structured Caps</option><option>Unstructured / Classic Caps</option><option>Snapback & Strapback</option><option>Trucker Caps</option><option>Bucket Hats</option><option>Beanies & Knits</option><option>Fitted Caps</option><option>OEM / Private Label</option><option>Custom ODM</option><option>Multiple / Not Sure</option></select>
+        <select><option value="">Select a cap style…</option><option>Structured Caps</option><option>Unstructured / Classic Caps</option><option>Snapback & Strapback</option><option>Trucker Caps</option><option>Bucket Hats</option><option>Beanies & Knits</option><option>Fitted Caps</option><option>OEM / Private Label</option><option>Custom ODM</option><option>Multiple / Not Sure</option></select>
       </div>
       <div class="form-group"><label>Estimated Quantity</label>
-        <select id="cf-qty"><option value="">Select quantity range…</option><option>300–500 units</option><option>500–1,000 units</option><option>1,000–5,000 units</option><option>5,000–10,000 units</option><option>10,000+ units</option></select>
+        <select><option value="">Select quantity range…</option><option>300–500 units</option><option>500–1,000 units</option><option>1,000–5,000 units</option><option>5,000–10,000 units</option><option>10,000+ units</option></select>
       </div>
-      <div class="form-group"><label>Your Message</label><textarea id="cf-message" placeholder="Tell us about your brand, style, and timeline…"></textarea></div>
-      <button class="btn-dark" onclick="sendEnquiry()" style="width:100%;padding:15px;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;">Send Enquiry →</button>
+      <div class="form-group"><label>Your Message</label><textarea placeholder="Tell us about your brand, style, and timeline…"></textarea></div>
+      <button class="btn-dark" style="width:100%;padding:15px;font-size:12px;letter-spacing:2px;text-transform:uppercase;">Send Enquiry →</button>
     </div>
   </div>
 </div>
@@ -705,9 +704,9 @@
 
 <!-- STICKY EMAIL CTA -->
 <div class="sticky-cta">
-  <a href="mailto:order@ventop.co" class="sticky-email-btn">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    <span>order@ventop.co</span>
+  <a href="https://wa.me/6593727194?text=Hi%20Ventop!%20I%27m%20interested%20in%20a%20custom%20cap%20order.%20Can%20you%20help%3F" target="_blank" rel="noopener" class="sticky-wa-btn">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>WhatsApp Us</span>
   </a>
 </div>
 
@@ -736,18 +735,7 @@
   }
   setInterval(() => goSlide(slideIdx + 1), 4500);
 
-  /* Cursor */
-  const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
-  let mx=0,my=0,tx=0,ty=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-  (function loop(){tx+=(mx-tx)*.12;ty+=(my-ty)*.12;ring.style.left=tx+'px';ring.style.top=ty+'px';requestAnimationFrame(loop);})();
-  function attachHover(){
-    document.querySelectorAll('a,button,.product-card,.cap-item,.gallery-item').forEach(el=>{
-      el.addEventListener('mouseenter',()=>{cur.style.transform='translate(-50%,-50%) scale(2.2)';ring.style.transform='translate(-50%,-50%) scale(1.6)';});
-      el.addEventListener('mouseleave',()=>{cur.style.transform='translate(-50%,-50%) scale(1)';ring.style.transform='translate(-50%,-50%) scale(1)';});
-    });
-  }
-  attachHover();
+  function attachHover(){}
 
   /* Page Nav */
   function showPage(name){
@@ -777,32 +765,6 @@
     el.style.animation=`fadeUp .8s ease ${0.08+i*.14}s forwards`;
   });
   initObserver();
-
-  function sendEnquiry() {
-    var name    = document.getElementById('cf-name').value.trim();
-    var company = document.getElementById('cf-company').value.trim();
-    var email   = document.getElementById('cf-email').value.trim();
-    var product = document.getElementById('cf-product').value;
-    var qty     = document.getElementById('cf-qty').value;
-    var message = document.getElementById('cf-message').value.trim();
-
-    if (!name || !email || !message) {
-      alert('Please fill in your Name, Email, and Message before sending.');
-      return;
-    }
-
-    var subject = encodeURIComponent('Cap Enquiry from ' + name + (company ? ' – ' + company : ''));
-    var body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Company: ' + (company || '—') + '\n' +
-      'Email: ' + email + '\n' +
-      'Product Interest: ' + (product || '—') + '\n' +
-      'Estimated Quantity: ' + (qty || '—') + '\n\n' +
-      'Message:\n' + message
-    );
-
-    window.location.href = 'mailto:order@ventop.co?subject=' + subject + '&body=' + body;
-  }
 </script>
 </body>
 </html>
